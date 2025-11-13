@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>صفحة نصوص عربي/إنجليزي</title>
+  <style>
+    :root{
+      --gap:16px;
+      --bg:#f8fafc;
+      --card:#ffffff;
+    }
+    html, body {
+      height:100%;
+      margin:0;
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: #111;
+      direction: rtl;
+      text-align: right;
+      unicode-bidi: embed;
+    }
+
+    .top-right {
+      position: fixed;
+      top: var(--gap);
+      right: var(--gap);
+      z-index: 1000;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    select {
+      appearance: none;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      background: var(--card);
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(16,24,40,0.06);
+      min-width: 180px;
+    }
+
+    .hint {
+      font-size: 15px;
+      color: #334155;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    main.content{
+      min-height:100vh;
+      display:flex;
+      flex-direction: column; /* عمود */
+      align-items:center;     /* مركز أفقياً */
+      justify-content:flex-start; /* محتوى من الأعلى */
+      padding:40px;
+      box-sizing:border-box;
+    }
+
+    .text-box{
+      width:100%;
+      max-width:1100px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+      border-radius:12px;
+      padding:28px;
+      box-shadow:0 8px 30px rgba(2,6,23,0.06);
+      line-height:1.7;
+      font-size:18px;
+      color:#0f172a;
+      text-align: right; /* RTL للنصوص */
+      margin-bottom:20px;
+    }
+
+    footer.signature {
+      width: 100%;
+      text-align: center;
+      font-weight: 600;
+      color: #334155;
+      margin-top: auto;  /* يبقي التوقيع في الأسفل */
+      padding: 10px 0;
+      border-top: 1px solid #d1d5db;
+    }
+
+    @media (max-width:420px){
+      .top-right{ gap:6px; right:10px; top:10px }
+      select{ min-width:120px; padding:8px 10px }
+      .hint{ font-size:14px }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-right" role="navigation" aria-label="قائمة الخيارات">
+    <select id="selector" aria-live="polite">
+      <option value="" selected>-- اختر خياراً --</option>
+      <option value="opt1">Slow internet</option>
+      <option value="opt2">Can't Make Local Calls</option>
+      <option value="opt3">تغطية Coverage</option>
+      <option value="opt4">Data-Can't use Internet</option>
+      
+    </select>
+    <span class="hint">المشكلة</span>
+  </div>
+
+  <main class="content" id="contentArea">
+    <div class="text-box" id="displayArea">
+      <h1>اختر خياراً من القائمة أعلى اليمين</h1>
+      <p>ــــــــــــــــــــــــــــــــــــ</p>
+    </div>
+
+    <footer class="signature">
+      ABDULLAH.61992
+    </footer>
+  </main>
+
+  <script>
+    const texts = {
+      opt1: `<h1>Slow internet</h1><p>- هل الإشكالية في استخدام الانترنت والبيانات فقط ام تواجه إشكالية في  المكالمات؟ <br><br>
+- هل تواجه مشكلة البيانات مع جميع التطبيقات/المواقع أم مع موقع محدد؟<br><br>
+-  ياليت تعيد ضبط اعدادات الشبكة عن طريق الخطوات التالية <br><br>
+- ولا عليك امر افصل اتصال ال vpn  اذا كان متصل وياليت تضبط اعدادات ال APN وتزودني بصورة شاشة من الاعدادات بعد ضبطها <br><br>
+- منذ متى بدأت مشكلة البيانات هذه؟<br><br>
+- هل المشكلة تتعلق بـ شبكة الجيل الرابع والخامس او الجيل الخامس فقط<br><br>
+- فضلاً زودني بصورة شاشة من اختبار السرعة من الموقع التالي www.speedtest.net <br><br>
+- فضلاً ياليت تجرب الشريحة في جهاز اخر وتبلغني اذا تم حل الإشكالية ام لا <br><br>
+لإنشاء تذكرة انتقل الى 
+<a href="https://abdullahcccus.github.io/TKTs/page3.html" target="_blank" style="color:#0b69ff; text-decoration:underline;">هنا</a>.
+</p>`,
+
+      opt2: `<h1>Can't Make Local Calls</h1><p>- من متى تواجه الإشكالية ؟ <br><br>
+- هل الإشكالية فقط في المكالمات ام تواجه إشكالية في استخدام الانترنت والبيانات ؟ <br><br>
+- هل تتواجد داخل المملكة العربية السعودية ؟ <br><br>
+- فضلاً ياليت تتحقق من حالة الشريحة هل فيها أي كسر او خدوش او ثنيات <br><br>
+- ولا عليك امر ياليت تزودني بنوع جهازك <br><br>
+- ياليت تعيد ضبط اعدادات الشبكة عن طريق الخطوات التالية <br><br>
+- فضلاً ياليت تضبط اعدادات ال APN وتزودني بصورة شاشة من الاعدادات بعد ضبطها <br><br>
+- هل الإشكالية تواجهك عند محاولة الاتصال بجميع الأرقام او على رقم محدد او مشغل محدد ؟<br><br>
+- ولا عليك امر ياليت تزودني بثلاث أرقام لم تستطع الاتصال بها (الرقم، التاريخ، الوقت)<br><br>
+- من فضلك ياليت تجرب الشريحة في جهاز اخر <br><br>
+لإنشاء تذكرة انتقل الى 
+<a href="https://abdullahcccus.github.io/TKTs/page4.html" target="_blank" style="color:#0b69ff; text-decoration:underline;">هنا</a>.
+</p>`,
+
+      opt3: `<h1>تغطية Coverage</h1><p>1- من متى تواجهك إشكالية سوء التغطية ؟<br><br>
+2- زودني بصورة شاشة لحالة الأبراج<br><br>
+3- هل الإشكالية في الـ 4G أو في الـ 5G ؟<br><br>
+4- قم بتنشيط الرقم ( فقط إذا كان 1.0 ) <br><br>
+5- أحتاج تأكدلي هل الإشكالية تواجهك في المكالمات والنت ؟ <br><br>
+6- هل أنت داخل السعودية ؟ وهل الإشكالية تواجهك في مكان واحد أو كل مكان<br><br>
+إذا العميل تواجهه مشاكل في النت والمكالمات، أطلب من العميل التأكد من ان الشريحة مافيها خدوش ( فقط إذا كانت شريحة عادية )<br><br>
+7- إعادة ضبط الشبكة <br><br>
+8- نوع جوال العميل وبعدين نعطيه الـ APN ويزودنا بصورة شاشة.<br><br>
+9- قم بإختبار سرعة النت من خلال الرابط http://www.speedtest.net وزودني بصورة شاشة<br><br>
+10- جرب الشريحة في جهازين آخرين وزودنا بصورة شاشة<br><br>
+11- زودنا بثلاث محاولات لمكالمات فاشلة مع الرقم والتاريخ والوقت<br><br>
+12- هل تواجهك إشكالية في إستقبال المكالمات أو الرسائل ؟<br><br>
+13- تحقق من تغطية الشبكة: http://www.stc.com.sa/wps/wcm/connect/arabic/helpAndSupport/storelocator<br><br>
+14- زودنا بإحداثيات موقعك من تطبيق Google Maps<br><br>
+15- هل الإشكالية داخل المنزل فقط أم حتى خارجه؟<br><br>
+16- رفع طلب للفريق المختص بخصوص الإشكالية <br><br>
+لإنشاء تذكرة انتقل الى 
+<a href="https://abdullahcccus.github.io/TKTs/page8.html" target="_blank" style="color:#0b69ff; text-decoration:underline;">هنا</a>.
+</p>`,
+
+      opt4: `<h1>Data-Can't use Internet</h1><p>
+- هل الاشكالية في مكان واحد ام في كل مكان ؟ <br><br>
+- من متى تواجه الإشكالية ؟ <br><br>
+- يا غالي هل الإشكالية في استخدام الانترنت والبيانات فقط ام تواجه إشكالية في اجراء المكالمات ؟ <br><br>
+- يا غالي هل تتواجد داخل المملكة العربية السعودية ؟ <br><br>
+- ولا عليك امر ياليت تتحقق من حالة الشريحة هل فيها أي كسر او خدوش او ثنيات <br><br>
+- ولا عليك امر ياليت تزودني بنوع جهازك <br><br>
+- ياليت تعيد ضبط اعدادات الشبكة عن طريق الخطوات التالية <br><br>
+- ولا عليك ام ياليت تضبط اعدادات ال APN وتزودني بصورة شاشة من الاعدادات بعد ضبطها <br><br>
+- ولا عليك امر ياليت تزودني بصورة من حالة الأبراج <br><br>
+- ياليت تشغل وضع الطيران لعدة دقائق وترجع تطفيه و ابلغني اذا انحلت الإشكالية او لا <br><br>
+- ولا عليك امر ياليت تجرب الشريحة في جهاز اخر <br><br>
+- لإنشاء تذكرة انتقل الى 
+<a href="https://abdullahcccus.github.io/TKTs/page2.html" target="_blank" style="color:#0b69ff; text-decoration:underline;">هنا</a>
+</p>`,
+
+      opt5: `<h1>مثال رابط</h1><p>
+يمكنك زيارة 
+<a href="https://www.example.com" target="_blank" style="color:#0b69ff; text-decoration:underline;">
+هذا الرابط
+</a> لفتح الموقع في تبويب جديد.
+</p>`
+    };
+
+    const selector = document.getElementById('selector');
+    const display = document.getElementById('displayArea');
+    const contentArea = document.getElementById('contentArea');
+
+    selector.addEventListener('change', e => {
+      const v = e.target.value;
+      display.innerHTML = texts[v] || `<h1>أهلاً — اختر خياراً من القائمة أعلى اليمين</h1>
+                                       <p>سيظهر النص هنا بعرض الصفحة كاملة وبمحاذاة من اليمين إلى اليسار.</p>`;
+    });
+  </script>
+
+</body>
+</html>
